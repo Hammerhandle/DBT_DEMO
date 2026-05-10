@@ -10,7 +10,8 @@ with cte as (
             when month(to_timestamp(started_at)) in (3,4,5) then 'spring'
             when month(to_timestamp(started_at)) in (6,7,8) then 'summer'
             else 'autumn'
-        end as season_of_year
+        end as season_of_year,
+        {{get_season(started_at)}} as season_of_year_macro
 
     from
         {{ source("demo", "bike") }}
