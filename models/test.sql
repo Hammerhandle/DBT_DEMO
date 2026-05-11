@@ -1,3 +1,3 @@
 select
 *
-from {{ source('demo','bike') }}
+from {{ ref('stage_bike') }}
